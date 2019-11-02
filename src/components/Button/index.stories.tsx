@@ -1,16 +1,13 @@
-import * as React from 'react';
-import { storiesOf } from '@storybook/react';
-import { action } from '@storybook/addon-actions';
+import * as React from 'react'
+import { action } from '@storybook/addon-actions'
 import { withKnobs, text } from '@storybook/addon-knobs'
-import Button from '.';
+import Button from '.'
 
-const stories = storiesOf('Components', module);
-stories.addDecorator(withKnobs);
+export default {
+  title: 'Base/Button',
+  component: Button,
+  decorators: [withKnobs],
+}
 
-stories.add(
-  'Button',
-  () =>
-    <Button onClick={action('onClick')}>
-      {text('Label', 'Click Me!')}
-    </Button>,
-);
+export const standard = () =>
+  <Button onClick={action('onClick')}>{text('Label', 'Click Me!')}</Button>

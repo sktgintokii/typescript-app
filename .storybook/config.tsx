@@ -11,5 +11,5 @@ addDecorator(story => (
   </>
 ));
 
-// automatically import all files ending in *.stories.tsx
-configure(require.context('../src', true, /\.stories\.tsx$/), module)
+// automatically import all files ending in *.stories.(tsx|jsx)
+configure(require.context('../src', true, /\.stories\.[tj]sx?$/), module);
