@@ -6,8 +6,9 @@ import Button from '.'
 export default {
   title: 'Base/Button',
   component: Button,
-  decorators: [withKnobs],
+  decorators: [withKnobs]
 }
 
-export const standard = () =>
+export const standard = () => (
   <Button onClick={action('onClick')}>{text('Label', 'Click Me!')}</Button>
+)
