@@ -1,12 +1,12 @@
-import * as React from 'react'
 import { action } from '@storybook/addon-actions'
-import { withKnobs, text } from '@storybook/addon-knobs'
+import { text, withKnobs } from '@storybook/addon-knobs'
+import * as React from 'react'
 import Button from '.'
 
 export default {
-  title: 'Base/Button',
   component: Button,
-  decorators: [withKnobs]
+  decorators: [withKnobs],
+  title: 'Base/Button'
 }
 
 export const standard = () => (
