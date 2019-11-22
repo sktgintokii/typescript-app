@@ -1,8 +1,8 @@
-import 'reflect-metadata'
-import { createConnection } from 'typeorm'
 import { ApolloServer } from 'apollo-server-express'
-import { buildSchema } from 'type-graphql'
 import * as Express from 'express'
+import 'reflect-metadata'
+import { buildSchema } from 'type-graphql'
+import { createConnection } from 'typeorm'
 import Context from './types/Context'
 
 const main = async (): Promise<void> => {

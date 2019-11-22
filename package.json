@@ -4,7 +4,13 @@
     "apps/*"
   ],
   "scripts": {
-    "lint": "tslint -c tslint.json apps/*/src/**/*.{ts,tsx} --format verbose"
+    "lint": "eslint apps/*/src/**/*.{ts,tsx}"
+  },
+  "prettier": {
+    "trailingComma": "all",
+    "printWidth": 100,
+    "semi": false,
+    "singleQuote": true
   },
   "husky": {
     "hooks": {
@@ -12,17 +18,19 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
-      "yarn lint --fix",
+    "apps/*/src/**/*.{js,jsx,ts,tsx,json,css,scss,md}": [
+      "eslint --fix",
       "git add"
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.1.0",
     "lint-staged": "^9.4.3",
-    "tslint": "^5.20.1",
-    "tslint-config-prettier": "^1.18.0",
-    "tslint-plugin-prettier": "^2.0.1",
-    "tslint-react": "^4.1.0"
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1"
   }
 }
