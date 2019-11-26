@@ -29,7 +29,9 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.0",
     "type-graphql": "^0.17.5",
+    "typedi": "^0.8.0",
     "typeorm": "^0.2.20",
+    "typeorm-typedi-extensions": "^0.2.3",
     "typescript": "^3.7.2"
   },
   "eslintConfig": {

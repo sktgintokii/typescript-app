@@ -1,15 +1,16 @@
 import { Resolver, Arg, Query, Ctx, Mutation } from 'type-graphql'
-import { getCustomRepository } from 'typeorm'
+import { InjectRepository } from 'typeorm-typedi-extensions'
 import Context from './types/Context'
 import User from './models/User/User.entity'
 import UserRepository from './models/User/User.repository'
 
-@Resolver(User)
+@Resolver()
 export class UserQuery {
-  private userRepository: UserRepository = getCustomRepository(UserRepository)
+  @InjectRepository(User)
+  private userRepository: UserRepository
 
-  @Query(returns => User)
-  async user(@Arg('id') id: number): Promise<User | undefined> {
+  @Query(() => User)
+  async user(@Arg('id') id: number): Promise<User | null> {
     const user = await this.userRepository.findOne(id)
     return user
   }
@@ -17,7 +18,8 @@ export class UserQuery {
 
 @Resolver()
 export class SignUpByEmailMutation {
-  private userRepository: UserRepository = getCustomRepository(UserRepository)
+  @InjectRepository(User)
+  private userRepository: UserRepository
 
   @Mutation(() => User)
   async signUpByEmail(
