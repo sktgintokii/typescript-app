@@ -31,8 +31,11 @@
     "type-graphql": "^0.17.5",
     "typeorm": "^0.2.20",
     "typescript": "^3.7.2"
-  }, 
+  },
   "eslintConfig": {
+    "rules": {
+      "no-undef": 2
+    },
     "parser": "@typescript-eslint/parser",
     "extends": [
       "plugin:@typescript-eslint/recommended",
@@ -42,6 +45,9 @@
     "parserOptions": {
       "ecmaVersion": 2018,
       "sourceType": "module"
+    },
+    "env": {
+      "node": true
     }
   }
 }

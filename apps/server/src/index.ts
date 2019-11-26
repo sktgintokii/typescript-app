@@ -1,15 +1,17 @@
+import 'reflect-metadata'
 import { ApolloServer } from 'apollo-server-express'
 import * as Express from 'express'
-import 'reflect-metadata'
 import { buildSchema } from 'type-graphql'
 import { createConnection } from 'typeorm'
 import Context from './types/Context'
+import * as resolvers from './resolvers'
 
 const main = async (): Promise<void> => {
   await createConnection()
 
   const schema = await buildSchema({
-    resolvers: [`${__dirname}/resolvers/*/*.resolver.ts`],
+    resolvers: Object.values(resolvers),
+    emitSchemaFile: true,
   })
   const apolloServer = new ApolloServer({
     schema,
@@ -25,4 +27,4 @@ const main = async (): Promise<void> => {
   })
 }
 
-main()
+main().catch(console.error)

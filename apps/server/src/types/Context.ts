@@ -1,4 +1,4 @@
-import User from '../entities/User'
+import User from '../models/User/User.entity'
 
 export default class Context {
   public user: User
