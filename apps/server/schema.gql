@@ -4,15 +4,23 @@
 # -----------------------------------------------
 
 type Mutation {
-  signUpByEmail(password: String!, email: String!, name: String!): User!
+  register(input: RegisterInputType!): Boolean!
 }
 
 type Query {
-  user(id: Float!): User!
+  users: [UserType!]!
 }
 
-type User {
-  id: Int!
-  name: String!
-  email: String!
+input RegisterInputType {
+  firstName: String!
+  lastName: String!
+  password: String!
+}
+
+type UserType {
+  id: String!
+  firstName: String!
+  lastName: String!
+  isActive: Boolean!
+  password: String!
 }
